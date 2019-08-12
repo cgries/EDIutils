@@ -4,25 +4,30 @@
 \alias{api_read_data_entity_names}
 \title{Read data entity names}
 \usage{
-api_read_data_entity_names(package.id, identifier, 
-    environment = 'production')
+api_read_data_entity_names(
+      package.id,
+      environment = 'production'
+    )
 }
 \arguments{
 \item{package.id}{(character) Package identifier composed of scope, identifier, and
-revision (e.g. 'edi.101.1').}
+revision (e.g. 'edi.101.1', 'knb-lter-ntl.303.20).}
 
-\item{identifier}{(character) Data entity identifier (e.g. 
-5c224a0e74547b14006272064dc869b1)}
-
-\item{environment}{(character) Data repository environment to create the package in.
-Can be: 'development', 'staging', 'production'.}
+\item{environment}{(character) PASTA+ environment in which to perform the operation. Can 
+be: 'development', 'staging', 'production'.}
 }
 \value{
-(character) Data entity names
+(data frame) A data frame containing entity identifiers and name values. 
+    Each line contains an entity identifier and its corresponding name 
+    value. Only data entities that the user is authorized to read are 
+    included.
 }
 \description{
 Read Data Entity Names operation, specifying the scope, identifier, 
     and revision of the data package whose data entity names are to be 
-    read in the URI. Only data entities that the user is authorized to 
-    read are included in the list.
+    read in the URI.
+}
+\examples{
+api_read_data_entity_names('edi.101.1')
+
 }
